@@ -7,17 +7,24 @@ public class GDP
     private static AtomicLong counter = new AtomicLong();
     private long id;
     private String name;
-    private String gdp;
+    private long gdp;
 
     public GDP()
     {
+    }
+
+    public GDP(String name, long gdp)
+    {
+        this.id = counter.incrementAndGet();
+        this.name = name;
+        this.gdp = gdp;
     }
 
     public GDP(String name, String gdp)
     {
         this.id = counter.incrementAndGet();
         this.name = name;
-        this.gdp = gdp;
+        this.gdp = Long.valueOf(gdp);
     }
 
     public long getId()
@@ -35,12 +42,12 @@ public class GDP
         this.name = name;
     }
 
-    public String getGdp()
+    public long getGdp()
     {
         return gdp;
     }
 
-    public void setGdp(String gdp)
+    public void setGdp(long gdp)
     {
         this.gdp = gdp;
     }
